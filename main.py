@@ -29,8 +29,9 @@ def testar():
 
 
 janela = CTk()
+set_appearance_mode("Dark")
 janela.title('Speed Test')
-janela.geometry('346x550+500+50')
+janela.geometry('345x550+500+50')
 janela.resizable(width=False, height=False)
 
 titulo = CTkLabel(janela, text='Teste a velocidade da sua internet', font=('Arial', 20, 'bold'), text_color='#05AFF2')
@@ -60,6 +61,7 @@ lping.grid(row=2, column=0, sticky='w', padx=5)
 conexao = CTkLabel(janela, text= f'Status de Conexão: {conectado()}', text_color='#05AFF2')
 conexao.grid(row=9, column=0, sticky='w', padx=5)
 
+janela.update()
 janela.mainloop()
 
 #Desenvolvido por Igor Souza.
