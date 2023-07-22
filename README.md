@@ -1,5 +1,4 @@
-# speed_test
-Teste a velocidade de sua internet de uma maneira simples.
+# Teste a velocidade de sua internet de uma maneira simples.
 
 O Speed Test avalia velocidade da sua conexão online, envolvendo fatores como a transferência de dados para download e upload.  
 
