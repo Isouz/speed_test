@@ -1,3 +1,8 @@
+###########################################
+###  Desenvolvido por Igor Souza        ###
+###  GitHub - https://github.com/Isouz  ###
+###########################################
+
 import speedtest
 from customtkinter import *
 import requests
@@ -63,6 +68,3 @@ conexao.grid(row=9, column=0, sticky='w', padx=5)
 
 janela.update()
 janela.mainloop()
-
-#Desenvolvido por Igor Souza.
-#GitHub - https://github.com/Isouz
