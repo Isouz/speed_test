@@ -1,6 +1,6 @@
 # Teste a velocidade de sua internet de uma maneira simples.
 
-O Speed Test avalia velocidade da sua conexão online, envolvendo fatores como a transferência de dados para download e upload. Para isso, foram usadas as bibliotecas do speedtest, customtkinter e requests.
+O Speed Test avalia velocidade da sua conexão online, envolvendo fatores como a transferência de dados para download e upload. Para isso, foram usadas as bibliotecas do speedtest, customtkinter requests e threading.
 
 A avaliação de velocidade da Internet analisa a taxa de download, a taxa de upload e a latência da conexão. As conexões de Internet de excelência exibem altas velocidades de transferência de dados tanto para download quanto para upload, enquanto mantêm a latência reduzida.
 
@@ -20,3 +20,11 @@ Os resultados do teste de velocidade da Internet podem variar por diversos motiv
 - Tipo de Conexão;
 - Hora do Dia;
 - Provedor de Internet;
+
+## Interface
+
+Como podemos ver abaixo, a interface é bem simples e intuitiva. Para realizar o teste basta clicar no botão "Testar" e esperar alguns segundos. Após o programa realizar os calculos, os resultados serão exibidos. <br>
+<br>
+![image](https://github.com/user-attachments/assets/e85f4527-4f71-4811-a1bf-59639aa3160c)
+<br><br>
+O programa também exibe o seu status de conexão atual na ultima linha. Certifique-se de estar conectado a internet para realizar os testes.
