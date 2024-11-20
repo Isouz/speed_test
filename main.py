@@ -8,12 +8,18 @@ from customtkinter import *
 import requests
 
 
-def conectado():
+def verificar_conexao():
     try:
         requests.get('https://www.google.com', timeout=5)
         return 'Conectado'
     except:
         return 'Desconectado'
+
+
+def atualizar_status_conexao():
+    status_conexao.configure(text=f'Status de Conexão: {verificar_conexao()}')
+    janela.after(5000, atualizar_status_conexao)
+
 
 
 def testar():
@@ -63,8 +69,9 @@ lupload.grid(row=1, column=0, sticky='w', padx=5)
 lping = CTkLabel(frame, text='')
 lping.grid(row=2, column=0, sticky='w', padx=5)
 
-conexao = CTkLabel(janela, text= f'Status de Conexão: {conectado()}', text_color='#05AFF2')
-conexao.grid(row=9, column=0, sticky='w', padx=5)
+status_conexao = CTkLabel(janela, text= f'Status de Conexão: ', text_color='#05AFF2')
+status_conexao.grid(row=9, column=0, sticky='w', padx=5)
 
+atualizar_status_conexao()
 janela.update()
 janela.mainloop()
