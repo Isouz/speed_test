@@ -6,6 +6,7 @@
 import speedtest
 from customtkinter import *
 import requests
+import threading
 
 
 def verificar_conexao():
@@ -23,6 +24,7 @@ def atualizar_status_conexao():
 
 def testar():
     try:
+        # Realiza os testes
         status.configure(text='Calculando...')
         janela.update()
         teste = speedtest.Speedtest()
@@ -30,12 +32,22 @@ def testar():
         velocidade_de_upload = teste.upload()
         ping = teste.results.ping
 
+        # Atualiza a interface com as informações
         status.configure(text='Concluído')
         label_download.configure(text= f'Velocidade de Download: {velocidade_de_download / 10**6:.2f} Mbps')
         label_upload.configure(text= f'Velocidade de Upload: {velocidade_de_upload / 10**6:.2f} Mbps')
         label_ping.configure(text=f'Ping: {ping:.2f} ms')
     except:
         status.configure(text='ERRO!')
+
+
+def thread_testar():
+    """
+    -> Cria uma thread separada para realizar os testes de conexão.
+    Isso evita o travamento do programa durante a realização do teste.
+    """
+    thread = threading.Thread(target=testar)
+    thread.start()
 
 
 janela = CTk()
@@ -53,7 +65,7 @@ descricao.grid(row=1, column=0, rowspan=2, padx=10, pady=10)
 status = CTkLabel(janela, text='')
 status.grid(row=5, column=0, padx=10, pady=10)
 
-botao = CTkButton(janela, text='Testar', command=testar)
+botao = CTkButton(janela, text='Testar', command=thread_testar)
 botao.grid(row=6, column=0, padx=10, pady=15)
 
 frame = CTkFrame(janela, corner_radius=10)
