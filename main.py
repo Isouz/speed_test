@@ -21,7 +21,6 @@ def atualizar_status_conexao():
     janela.after(5000, atualizar_status_conexao)
 
 
-
 def testar():
     try:
         status.configure(text='Calculando...')
@@ -32,9 +31,9 @@ def testar():
         ping = teste.results.ping
 
         status.configure(text='Concluído')
-        ldownload.configure(text= f'Velocidade de Download: {velocidade_de_download / 10**6:.2f} Mbps')
-        lupload.configure(text= f'Velocidade de Upload: {velocidade_de_upload / 10**6:.2f} Mbps')
-        lping.configure(text=f'Ping: {ping:.2f} ms')
+        label_download.configure(text= f'Velocidade de Download: {velocidade_de_download / 10**6:.2f} Mbps')
+        label_upload.configure(text= f'Velocidade de Upload: {velocidade_de_upload / 10**6:.2f} Mbps')
+        label_ping.configure(text=f'Ping: {ping:.2f} ms')
     except:
         status.configure(text='ERRO!')
 
@@ -60,18 +59,19 @@ botao.grid(row=6, column=0, padx=10, pady=15)
 frame = CTkFrame(janela, corner_radius=10)
 frame.grid(row=7, column=0, rowspan=2, columnspan=2, sticky='nswe', padx=10, pady=35)
 
-ldownload = CTkLabel(frame, text='')
-ldownload.grid(row=0, column=0, sticky='w', padx=5)
+label_download = CTkLabel(frame, text='')
+label_download.grid(row=0, column=0, sticky='w', padx=5)
 
-lupload = CTkLabel(frame, text='')
-lupload.grid(row=1, column=0, sticky='w', padx=5)
+label_upload = CTkLabel(frame, text='')
+label_upload.grid(row=1, column=0, sticky='w', padx=5)
 
-lping = CTkLabel(frame, text='')
-lping.grid(row=2, column=0, sticky='w', padx=5)
+label_ping = CTkLabel(frame, text='')
+label_ping.grid(row=2, column=0, sticky='w', padx=5)
 
 status_conexao = CTkLabel(janela, text= f'Status de Conexão: ', text_color='#05AFF2')
 status_conexao.grid(row=9, column=0, sticky='w', padx=5)
 
 atualizar_status_conexao()
+
 janela.update()
 janela.mainloop()
